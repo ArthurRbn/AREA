@@ -1,0 +1,30 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Server of Epitech's area project",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alexandre Sauner - Axel Biehler - Arthur Robine - Maxime Fréchard - Jonathan Cohen",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.25.2"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "email-validator": "^2.0.4",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.12",
+    "node-fetch": "^2.6.7",
+    "node-mailjet": "^3.3.7",
+    "oauth": "^0.9.15",
+    "oauth-1.0a": "^2.2.6",
+    "uuid": "^8.3.2"
+  }
+}

@@ -1,0 +1,56 @@
+version: "3"
+
+services:
+  client_web:
+    build: nginx  
+    depends_on:
+      - front
+      - client_mobile
+      - server
+    ports:
+      - 8081:8081
+    volumes:
+      - "web:/usr/share/nginx/html:ro"
+
+  front:
+    build:
+      context: ./front
+    volumes:
+      - "web:/opt"
+
+  client_mobile:
+    build:
+      context: ./mobile
+    volumes:
+      - "web:/opt"
+
+  server:
+    build: server
+    ports:
+      - 8080:8080
+    networks:
+      - backend
+    environment:
+      - MONGO_URL=mongodb://area:SyA7Zr4cbcDwjD@mongo
+    env_file:
+    - "server/.env"
+
+  mongo:
+    image: mongo:5.0.4
+    ports:
+      - 27017:27017
+    networks:
+      - backend
+    volumes:
+      - database:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=area
+      - MONGO_INITDB_ROOT_PASSWORD=SyA7Zr4cbcDwjD
+
+networks:
+  backend:
+    driver: bridge
+
+volumes:
+  web:
+  database:
